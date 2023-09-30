@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\shift_hopeControllers;
+use App\Http\Controllers\ShiftHopeController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +17,11 @@ use App\Http\Controllers\shift_hopeControllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shift_hope', [shift_hopeController::class, 'index']);  
+Route::get('/shift_hope', [ShiftHopeController::class, 'index']);  
+
+
+Route::get('/posts/{post}', [ShiftHopeController::class ,'show']);
