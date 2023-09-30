@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <x-app-layout>
+    <x-slot name="header">
     <head>
         <meta charset="utf-8">
         <title>希望入力画面</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    </x-slot>
     <body>
         <h1>シフト希望入力画面</h1>
         
@@ -43,14 +46,18 @@
                     <option value="ご意見・ご感想">17:00~22:00</option>
                 </select>
         </div>
-            <button type="submit">提出</button>
         <div class='posts'>
         @foreach ($posts as $post)
             <div class='post'>
                 <h2 class='title'>{{ $post->date }}</h2>
             </div>
+            <h3 class='title'>
+                <a href="/posts/{{ $post->id }}">提出</a>
+            </h3>
         @endforeach
+        <p>ユーザー名:{{ Auth::user()->name }}</p>
             
             
     </body>
+    </x-app-layout>
 </html>

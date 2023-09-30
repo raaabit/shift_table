@@ -14,7 +14,7 @@ class ShiftHopeController extends Controller
     
     public function show(ShiftHope $post)
     {
-        return view('shift_check.show')->with(['post' => $post]);
+        return view('shift_check.check')->with(['post' => $post]);
  //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
     }
 }
